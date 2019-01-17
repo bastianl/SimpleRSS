@@ -1,0 +1,13 @@
+Package: simple.RSS
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Author: Lennart Bastian
+Maintainer: Lennart Bastian <lennartbastian@tum.de>
+Description: An implementation of a simple Residual Sum of Squares
+    method for different R classes, using s3.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Suggests:
+    testthat

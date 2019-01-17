@@ -7,6 +7,11 @@ data(iris)
 
 set.seed(71)
 
+test_that("lm matching works", {
+
+  expect_equal(simple_rss(lm(Petal.Width ~ Petal.Length, data=iris)), 6.310096, tolerance=1e-3)
+})
+
 test_that("rpart matching works", {
 
   partition <- rpart(Sepal.Width ~ Sepal.Length + Petal.Length + Petal.Width + Species, data = iris)

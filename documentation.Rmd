@@ -1,0 +1,38 @@
+---
+title: "Simple RSS"
+author: "Lennart Bastian"
+date: "1/17/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Package Installation
+
+```{r, eval = FALSE}
+install.packages("simple.RSS_0.1.0.tar.gz", type = "source", repos = NULL)
+```
+
+```{r}
+library(simple.RSS)
+methods(simple_rss)
+```
+
+## Examples
+```{r, eval=T, results='hide', message=FALSE}
+# load the Random Forest library
+library(randomForest)
+```
+```{r}
+# calculate the RSS using the generic default method, from a linear model
+fit <- lm(Petal.Width ~ Petal.Length, data=iris)
+simple_rss(fit)
+
+# calculate the RSS of a Random Forest model (custom s3 method)
+data(iris)
+rf <- randomForest(Sepal.Length ~ ., data=iris, importance=TRUE,
+                   proximity=TRUE)
+simple_rss(rf)
+```
